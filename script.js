@@ -14,3 +14,18 @@ const storyObj = {
         story: "Lost in the heart of the Amazon rain forest, Sarah and Jake stumbled upon an ancient temple. They braved deadly traps and encountered strange wildlife, all while deciphering cryptic clues left behind by a mysterious civilization.",
         borderColor:"#acd157"},
 }
+function displayStory(genre) {
+     // Check if the genre exists inside storyObj
+  if (storyObj.hasOwnProperty(genre)) {
+    // Update story text
+    document.querySelector("#result").textContent = storyObj[genre].story;
+    
+    // Update border color of the story container
+    storyContainer.style.borderColor = storyObj[genre].borderColor;
+  } else {
+    console.log("Genre not found:", genre);
+  }
+}
+scaryStoryBtn.addEventListener('click',() => {displayStory("scary")})
+funnyStoryBtn.addEventListener('click',() => displayStory("funny"))
+adventureStoryBtn.addEventListener('click', () => displayStory("adventure"))
